@@ -42,4 +42,4 @@ The metrics we are mesuring:
 - Memory usage
 - Scheduling policy
 
-## [Bibliography](doc/resources.md)
+## [Bibliography](https://github.com/bench-os/doc/resources.md)
