@@ -17,11 +17,13 @@ void *task1(void *arg)
 
     while (1)
     {
+        bench_ping(TASK_1);
         //gpio_set(GPIO_PIN(PORT_C, 2));
-        bench_ping(TASK_1);
-        for(int i = 0; i < 1000; i++) {}
-        bench_ping(TASK_1);
+        for(int i = 0; i < 100; i++) {
+            puts("1");
+        }
         //gpio_clear(GPIO_PIN(PORT_C, 2));
+        bench_ping(TASK_1);
         thread_yield();
     }
     return NULL;
@@ -33,11 +35,13 @@ void *task2(void *arg)
 
     while (1)
     {
+        bench_ping(TASK_2);
         //gpio_set(GPIO_PIN(PORT_C, 3));
-        bench_ping(TASK_2);
-        for(int i = 0; i < 1000; i++) {}
-        bench_ping(TASK_2);
+        for(int i = 0; i < 100; i++) {
+            puts("2");
+        }
         //gpio_clear(GPIO_PIN(PORT_C, 3));
+        bench_ping(TASK_2);
         thread_yield();
     }
     return NULL;

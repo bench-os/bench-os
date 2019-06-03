@@ -30,11 +30,11 @@ PROCESS_THREAD(task_1, ev, data)
 
     while (1)
     {
-        //GPIO_SET_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(2));
         bench_on();
+        //GPIO_SET_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(2));
         clock_delay_usec(1000);
-        bench_off();
         //GPIO_CLR_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(2));
+        bench_off();
         PROCESS_PAUSE();
     }
 
@@ -50,11 +50,11 @@ PROCESS_THREAD(task_2, ev, data)
 
     while (1)
     {
-        //GPIO_SET_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(3));
         bench_on();
+        //GPIO_SET_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(3));
         clock_delay_usec(1000);
-        bench_off();
         //GPIO_CLR_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(3));
+        bench_off();
         PROCESS_PAUSE();
     }
 

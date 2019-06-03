@@ -23,11 +23,11 @@ PROCESS_THREAD(task_1, ev, data)
 
     while (1)
     {
+        bench_ping(TASK_1);
         //GPIO_SET_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(2));
-        bench_ping(TASK_1);
         clock_delay_usec(1000);
-        bench_ping(TASK_1);
         //GPIO_CLR_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(2));
+        bench_ping(TASK_1);
         PROCESS_PAUSE();
     }
 
@@ -43,11 +43,11 @@ PROCESS_THREAD(task_2, ev, data)
 
     while (1)
     {
+        bench_ping(TASK_2);
         //GPIO_SET_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(3));
-        bench_ping(TASK_2);
         clock_delay_usec(1000);
-        bench_ping(TASK_2);
         //GPIO_CLR_PIN(GPIO_PORT_TO_BASE(GPIO_C_NUM), GPIO_PIN_MASK(3));
+        bench_ping(TASK_2);
         PROCESS_PAUSE();
     }
 

@@ -7,16 +7,16 @@
 /**
  * Init the framework
  */
-void bench_init();
+void bench_init(void);
 
 /**
  * Set the GPIO on.
  */
-void bench_on();
+void bench_on(void);
 
 /**
  * Set the GPIO off.
  */
-void bench_off();
+void bench_off(void);
 
 #endif

@@ -14,9 +14,11 @@ void *task1(void *arg)
     while (1)
     {
         gpio_set(GPIO_PIN(PORT_C, 2));
-        for(int i = 0; i < 1000; i++) {}
-        thread_yield();
+        for(int i = 0; i < 100; i++) {
+            puts("1");
+        }
         gpio_clear(GPIO_PIN(PORT_C, 2));
+        thread_yield();
     }
     return NULL;
 }
@@ -28,9 +30,11 @@ void *task2(void *arg)
     while (1)
     {
         gpio_set(GPIO_PIN(PORT_C, 3));
-        for(int i = 0; i < 1000; i++) {}
-        thread_yield();
+        for(int i = 0; i < 100; i++) {
+            puts("2");
+        }
         gpio_clear(GPIO_PIN(PORT_C, 3));
+        thread_yield();
     }
     return NULL;
 }
