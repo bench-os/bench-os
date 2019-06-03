@@ -13,11 +13,15 @@ void *task1(void *arg)
 
     while (1)
     {
-        gpio_set(GPIO_PIN(PORT_C, 2));
+        // Set GPIO P6.1
+        //gpio_set(GPIO_PIN(6, 1));
+        P6OUT |= 0x02;
         for(int i = 0; i < 100; i++) {
             puts("1");
         }
-        gpio_clear(GPIO_PIN(PORT_C, 2));
+        // Clear GPIO P6.1
+        //gpio_clear(GPIO_PIN(6, 1));
+        P6OUT &= ~0x02;
         thread_yield();
     }
     return NULL;
@@ -29,11 +33,15 @@ void *task2(void *arg)
 
     while (1)
     {
-        gpio_set(GPIO_PIN(PORT_C, 3));
+        // Set GPIO P6.3
+        //gpio_set(GPIO_PIN(6, 3));
+        P6OUT |= 0x08;
         for(int i = 0; i < 100; i++) {
-            puts("2");
+            puts("1");
         }
-        gpio_clear(GPIO_PIN(PORT_C, 3));
+        // Clear GPIO P6.3
+        //gpio_clear(GPIO_PIN(6, 3));
+        P6OUT &= ~ 0x08;
         thread_yield();
     }
     return NULL;
@@ -43,14 +51,10 @@ int main(void)
 {
     puts("Simple application");
 
-    if (gpio_init(GPIO_PIN(PORT_C, 2), GPIO_OUT))
-    {
-        puts("Error with PC2");
-    }
-    if (gpio_init(GPIO_PIN(PORT_C, 3), GPIO_OUT))
-    {
-        puts("Error with PC3");
-    }
+    // Enable P6.1 and P6.3
+    P6SEL &= ~0x0A;
+    P6DIR |= 0x0A;
+
 
     // Create threadA with priority 1
     puts("Main: Creating task1...");

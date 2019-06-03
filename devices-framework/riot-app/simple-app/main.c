@@ -15,11 +15,11 @@ void *task1(void *arg)
     while (1)
     {
         bench_on();
-        gpio_set(GPIO_PIN(PORT_C, 2));
+        //P6OUT |= 0x02;
         for(int i = 0; i < 100; i++) {
             puts("1");
         }
-        gpio_clear(GPIO_PIN(PORT_C, 2));
+        //P6OUT &= ~0x02;
         bench_off();
         thread_yield();
     }
@@ -33,11 +33,11 @@ void *task2(void *arg)
     while (1)
     {
         bench_on();
-        gpio_set(GPIO_PIN(PORT_C, 3));
+        //P6OUT |= 0x08;
         for(int i = 0; i < 100; i++) {
             puts("2");
         }
-        gpio_clear(GPIO_PIN(PORT_C, 3));
+        //P6OUT &= ~ 0x08;
         bench_off();
         thread_yield();
     }
@@ -48,14 +48,8 @@ int main(void)
 {
     puts("Simple application");
 
-    if (gpio_init(GPIO_PIN(PORT_C, 2), GPIO_OUT))
-    {
-        puts("Error with PC2");
-    }
-    if (gpio_init(GPIO_PIN(PORT_C, 3), GPIO_OUT))
-    {
-        puts("Error with PC3");
-    }
+    //P6SEL &= ~0x0A;
+    //P6DIR |= 0x0A;
 
     // Init the framework
     bench_init();

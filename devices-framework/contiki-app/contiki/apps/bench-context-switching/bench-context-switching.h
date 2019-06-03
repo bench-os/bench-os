@@ -2,12 +2,8 @@
 #define __BENCH_CONTEXT_SWITCHING_H__
 
 #include "contiki.h"
-#include "dev/serial-line.h"
-#include "gpio.h"
-#include "board.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * Init the framework
