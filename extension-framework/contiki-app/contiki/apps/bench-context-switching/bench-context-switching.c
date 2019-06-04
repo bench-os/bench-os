@@ -42,7 +42,7 @@ int check_change(void)
 
     bench_context.current_time = current; // Ticks
 
-    printf("%s %lu %lu %lu %d\n", BENCH_CONTEXT_SWITCHING_FLAG, previous_id, bench_context.new_id, result, CLOCK_SECOND);
+    printf("%s %lu %lu %lu %d\n", BENCH_CONTEXT_SWITCHING_FLAG, previous_id, bench_context.new_id, result, RTIMER_ARCH_SECOND);
 
     return 1; // Change occurs
   }

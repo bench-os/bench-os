@@ -23,7 +23,7 @@ PROCESS_THREAD(task_1, ev, data)
         //P6OUT |= 0x02;
         int i;
         for(i = 0; i < 100; i++) {
-            printf("1");
+            printf("1\n");
         }
         //P6OUT &= ~0x02;
         bench_ping(TASK_1);
@@ -46,7 +46,7 @@ PROCESS_THREAD(task_2, ev, data)
         //P6OUT |= 0x08;
         int i;
         for(i = 0; i < 100; i++) {
-            printf("1");
+            printf("1\n");
         }
         //P6OUT &= ~ 0x08;
         bench_ping(TASK_2);
