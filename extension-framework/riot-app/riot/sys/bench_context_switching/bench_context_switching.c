@@ -11,7 +11,7 @@ struct BContext
 {
   uint32_t previous_id;
   uint32_t new_id;
-  uint32_t current_time;
+  xtimer_ticks32_t current_time;
 } bench_context;
 
 void bench_ping(uint32_t id)
@@ -22,8 +22,8 @@ void bench_ping(uint32_t id)
   if (!check_change())
   {
     // Save the current time
-    xtimer_ticks32_t current = xtimer_now();
-    bench_context.current_time = current.ticks32;
+    //xtimer_ticks32_t current = xtimer_now();
+    bench_context.current_time = xtimer_now();
   }
 }
 
@@ -33,8 +33,9 @@ int check_change(void)
   {
     // Compute the difference
     xtimer_ticks32_t current = xtimer_now();
-    uint32_t previous = bench_context.current_time;
-    uint32_t result = current.ticks32 - previous;
+    xtimer_ticks32_t previous = bench_context.current_time;
+    xtimer_ticks32_t diff = xtimer_diff(current, previous);
+    uint32_t result = xtimer_usec_from_ticks(diff);
 
     // Keep the previous id for log
     uint32_t previous_id = bench_context.previous_id;

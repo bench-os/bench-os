@@ -12,8 +12,6 @@ PROCESS(task_1, "First task");
 PROCESS(task_2, "Second task");
 AUTOSTART_PROCESSES(&task_1, &task_2);
 
-static struct etimer timer;
-
 PROCESS_THREAD(task_1, ev, data)
 {
     PROCESS_BEGIN();
